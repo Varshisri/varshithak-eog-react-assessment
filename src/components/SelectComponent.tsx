@@ -20,23 +20,19 @@ const useStyles = makeStyles((theme: Theme) =>
 export interface selectProps {
   data?: any;
   handleSelectChange?: any;
+  selected?: string;
 }
 
-export const SelectComponent = ({ data, handleSelectChange }: selectProps) => {
+export const SelectComponent = ({ data, handleSelectChange, selected }: selectProps) => {
   const classes = useStyles();
   let opt = Array.from(data);
   return (
     <>
       <FormControl className={classes.formControl}>
         <InputLabel id="select-label">Metrics</InputLabel>
-        <Select
-          labelId="select-label"
-          id="select"
-          value={'Select Metrics'}
-          onChange={event => handleSelectChange(event)}
-        >
+        <Select labelId="select-label" id="select" value={selected} onChange={event => handleSelectChange(event)}>
           {opt.map((option: any, index: any) => (
-            <MenuItem key={index} value={index}>
+            <MenuItem key={index} value={option}>
               {option}
             </MenuItem>
           ))}
