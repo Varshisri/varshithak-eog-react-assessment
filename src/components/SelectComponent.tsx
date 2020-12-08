@@ -23,20 +23,24 @@ export interface selectProps {
 }
 
 export const SelectComponent = ({ data, handleSelectChange }: selectProps) => {
-  let index = 1;
   const classes = useStyles();
-  const options = data.data;
-  console.log({ options });
+  let opt = Array.from(data);
   return (
     <>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Metrics</InputLabel>
+        <InputLabel id="select-label">Metrics</InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          labelId="select-label"
+          id="select"
           value={'Select Metrics'}
           onChange={event => handleSelectChange(event)}
-        ></Select>
+        >
+          {opt.map((option: any, index: any) => (
+            <MenuItem key={index} value={index}>
+              {option}
+            </MenuItem>
+          ))}
+        </Select>
       </FormControl>
     </>
   );
