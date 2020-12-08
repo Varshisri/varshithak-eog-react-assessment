@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { actions as metricActions } from '../Metrics/metricReducer';
 import { actions as metricMeasureActions } from '../Metrics/metricDataReducer';
-import { Provider, createClient, useQuery } from 'urql';
+import { createClient, useQuery } from 'urql';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { IState } from '../../../store';
-import { SelectComponent } from '../../../components/SelectComponent';
+import { MetricsChart } from './MetricsChart';
 
 const client = createClient({
   url: 'https://react.eogresources.com/graphql',
@@ -72,6 +71,7 @@ export const DisplayMetric = (props: displayProps) => {
       <div className={'grid-row grid-gap-4'}>
         <strong>Unit : </strong> {unit}
       </div>
+      <MetricsChart selected={props.selectedValue} />
     </>
   );
 };

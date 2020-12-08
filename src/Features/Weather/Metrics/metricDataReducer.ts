@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from 'redux-starter-kit';
 
 export type MetricMeasurement = {
-    metric: string;
-at: string;
-value: number;
-unit: string;
-}
+  metric: string;
+  at: string;
+  value: number;
+  unit: string;
+};
 
 export type MMApiErrorAction = {
   error: string;
@@ -19,7 +19,7 @@ const initialState = {
   };
 
 const slice = createSlice({
-  name: 'metric',
+  name: 'metricData',
   initialState,
   reducers: {
     metricMeasurementRecevied: (state, action: PayloadAction<MetricMeasurement>) => {

@@ -6,7 +6,6 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import { IState } from '../../../store';
 import { SelectComponent } from '../../../components/SelectComponent';
 import { DisplayMetric } from './DisplayMetric';
-import classes from '*.module.css';
 import { Card, CardHeader, CardContent, makeStyles } from '@material-ui/core';
 
 const client = createClient({
