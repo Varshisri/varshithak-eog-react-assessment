@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions as metricMeasureActions } from '../Metrics/metricDataReducer';
 import { createClient, useQuery } from 'urql';
@@ -59,10 +59,10 @@ export const DisplayMetric = (props: displayProps) => {
   if (fetching) return <LinearProgress />;
   return (
     <>
-      <div className={'grid-row grid-gap-4'}>
+      <div>
         <strong>Metric : </strong> {metric}
       </div>
-      <div className={'grid-row grid-gap-4'}>
+      <div>
         <strong>At : </strong> {at}
       </div>
       <div className={'grid-row grid-gap-4'}>
