@@ -21,15 +21,18 @@ export interface selectProps {
   data?: any;
   handleSelectChange?: any;
   selected?: string;
+  title?: string;
 }
 
-export const SelectComponent = ({ data, handleSelectChange, selected }: selectProps) => {
+export const SelectComponent = ({ title, data, handleSelectChange, selected }: selectProps) => {
   const classes = useStyles();
   let opt = Array.from(data);
   return (
     <>
       <FormControl className={classes.formControl}>
-        <InputLabel id="select-label">Metrics</InputLabel>
+        <InputLabel id="select-label">{title}</InputLabel>
+        <br />
+        <br />
         <Select labelId="select-label" id="select" value={selected} onChange={event => handleSelectChange(event)}>
           {opt.map((option: any, index: any) => (
             <MenuItem key={index} value={option}>

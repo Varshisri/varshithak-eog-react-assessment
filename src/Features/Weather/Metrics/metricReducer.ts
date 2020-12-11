@@ -15,6 +15,7 @@ const slice = createSlice({
     metricDataRecevied: (state, action: PayloadAction<Metrics>) => {
       let m = action.payload;
       state.metricList= m;
+      console.log({list: state.metricList})
     },
     metricApiErrorReceived: (state, action: PayloadAction<ApiErrorAction>) => state,
   },

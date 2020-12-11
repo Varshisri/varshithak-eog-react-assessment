@@ -13,7 +13,8 @@ const client = createClient({
 });
 const useStyles = makeStyles({
   card: {
-    margin: '5% 25%',
+    width: '100%',
+    minHeight: 400,
   },
 });
 const query = `query{
@@ -62,7 +63,12 @@ const SelectMetrics = () => {
         <CardHeader title="Metrics" />
         <CardContent>
           <div>
-            <SelectComponent data={metricList.metricList} handleSelectChange={handleSelectChange} selected={selected} />
+            <SelectComponent
+              title="Metrics"
+              data={metricList.metricList}
+              handleSelectChange={handleSelectChange}
+              selected={selected}
+            />
           </div>
           <div>{display ? <DisplayMetric selectedValue={selected} /> : <> </>}</div>
         </CardContent>

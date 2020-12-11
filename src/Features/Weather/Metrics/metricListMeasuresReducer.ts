@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from 'redux-starter-kit';
 
-export type MetricListMeasurement = {
+export type MetricListMeasurement = [{
   metric: string;
-  measurements: [];
-};
+  measurements: [{metric: string, at: number, value: number, unit: string}];
+}];
 
 export type MetricListApiErrorAction = {
   error: string;
@@ -19,10 +19,13 @@ const slice = createSlice({
   initialState,
   reducers: {
     metricListMeasurementRecevied: (state, action: PayloadAction<MetricListMeasurement>) => {
-      const{ metric, measurements} = action.payload;
-      console.log({ tertye: action.payload})
-      state.metric= metric;
+      let m = action.payload;
+     let n = Array.from(m);
+      n.forEach((i) => {
+        const {metric, measurements} = i;
+        state.metric=metric;
       state.measurements= measurements;
+    });   
     },
     metricListMeasurementApiErrorReceived: (state, action: PayloadAction<MetricListApiErrorAction>) => state,
   },
